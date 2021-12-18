@@ -4,30 +4,33 @@ import (
 	"fas/foldersearcher"
 	"flag"
 	"fmt"
-	"strings"
+	"strconv"
+
+	"github.com/vutran/ansi/colors"
+	"github.com/vutran/ansi/styles"
 )
 
 func main() {
-	folder := flag.String("f", ".", "Specify the folder to search for.")
-	file := flag.String("ff", "*", "Specify the file to search for.")
+	folder := flag.String("f", ".", "Specify the folder to search for")
+	file := flag.String("ff", "*", "Specify the file to search for")
 	flag.Parse()
 
 	rootFolder := *folder
 	fileSearch := *file
 
-	filesList := foldersearcher.SearchFolder(rootFolder)
+	// Todo :: do a recursive search and return path and file name
+	filesList := foldersearcher.SearchFolder(rootFolder, fileSearch)
 
-	if filesList.Contains(fileSearch) {
-		fmt.Println("found: " + fileSearch)
-	}
-}
+	if len(filesList) > 0 {
+		fmt.Println("##########################################")
+		fmt.Println(" pwd: " + rootFolder)
+		fmt.Println("------------------------------------------")
+		fmt.Println(" " + strconv.Itoa(len(filesList)) + " entries found for " + fileSearch)
+		fmt.Println()
 
-func (ss []strings) Contains(value string) bool {
-	result := false
-	for _, s := range ss {
-		if strings.Contains(ss, value) {
-			result = true
+		for _, e := range filesList {
+			boldName := styles.Bold(colors.Red(e.Name))
+			fmt.Println("> " + e.Path + "/" + boldName)
 		}
 	}
-	return result
 }

@@ -6,6 +6,7 @@ require (
 	github.com/BurntSushi/toml v0.4.1 // indirect
 	github.com/google/go-cmp v0.5.6 // indirect
 	github.com/sergi/go-diff v1.1.0 // indirect
+	github.com/vutran/ansi v0.0.0-20171009005711-a6ffff38c7d9 // indirect
 	golang.org/x/mod v0.5.1 // indirect
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c // indirect
 	golang.org/x/sys v0.0.0-20211019181941-9d821ace8654 // indirect
