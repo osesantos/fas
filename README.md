@@ -44,3 +44,9 @@ $ cargo build --relase
 ```sh
 $ cargo run -- -p <path> -s <search term>
 ```
+
+## How to install in linux?
+
+```sh
+$ sudo cp .target/release/fas /usr/bin/.
+```
