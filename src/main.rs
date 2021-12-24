@@ -35,7 +35,7 @@ impl VecMatchExt for Vec<Match> {
             println!("");
             for m in &self {
                 println!("");
-                println!("> {}", Yellow.paint(m.file_path()));
+                println!("> {}", Yellow.paint(m.path.clone()));
                 println!("");
                 let inner_status = format!("{} results in file found!", m.lines.len());
                 println!("{}", Green.paint(inner_status));
